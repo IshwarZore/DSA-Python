@@ -1,0 +1,10 @@
+def decToBin(n):
+   
+    if n==0:
+        return
+    decToBin(n//2)
+    print(n%2, end='')
+
+if __name__ == "__main__":
+    n=int(input("Enter the number : "))
+    decToBin(n)
