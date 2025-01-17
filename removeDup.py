@@ -16,5 +16,6 @@ if __name__ == "__main__":
         l.append(int(input("Enter next int : ")))
     
     print(l)
+    l.sort()
     remDup(l)
     print(l)

@@ -12,9 +12,9 @@ def ifSorted(l,n):
 
 
 if __name__ == "__main__":
-    n=int(input("Enter the number : "))
+    n=int(input("Enter the no of digits you want to compare : "))
     l=[]
     for i in range(n):
         l.append(int(input("Enter next int : ")))
     
-    print (ifSorted(l,n))
+    print ("Are the digits sorted ???  ", ifSorted(l,n))

@@ -6,7 +6,7 @@ def PrimeFact(n):
         while(n%i==0):
            print (i)
            n=n//i 
-        i+=1
+        i=i+1
 
 
 
