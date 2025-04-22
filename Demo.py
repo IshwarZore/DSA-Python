@@ -141,3 +141,85 @@ for epoch in range(10):
         loss.backward()
         optimizer.step()
     print(f"Epoch {epoch+1}, Loss: {loss.item():.4f}")
+
+
+"""
+========================= SQL SYNTAX QUICK REFERENCE =========================
+
+-- 1. SELECT statement (basic retrieval)
+SELECT column1, column2 FROM table_name;
+
+-- 2. WHERE clause (filtering rows)
+SELECT * FROM employees WHERE department = 'Sales' AND salary > 50000;
+
+-- 3. ORDER BY (sorting results)
+SELECT name, salary FROM employees ORDER BY salary DESC;
+
+-- 4. GROUP BY + Aggregation
+SELECT department, COUNT(*) AS total FROM employees GROUP BY department;
+
+-- 5. HAVING (filtering after grouping)
+SELECT department, AVG(salary) AS avg_salary FROM employees 
+GROUP BY department HAVING AVG(salary) > 60000;
+
+-- 6. JOINs (combine tables)
+SELECT a.name, b.salary 
+FROM employees a 
+JOIN salaries b ON a.emp_id = b.emp_id;
+
+-- LEFT JOIN (all from left + matched from right)
+SELECT e.name, d.dept_name 
+FROM employees e 
+LEFT JOIN departments d ON e.dept_id = d.id;
+
+-- 7. Subquery (query inside query)
+SELECT name FROM employees 
+WHERE dept_id IN (SELECT id FROM departments WHERE region = 'Asia');
+
+-- 8. CASE (if-else logic)
+SELECT name,
+       CASE 
+         WHEN salary >= 100000 THEN 'High'
+         WHEN salary >= 50000 THEN 'Medium'
+         ELSE 'Low'
+       END AS salary_band
+FROM employees;
+
+-- 9. DISTINCT (remove duplicates)
+SELECT DISTINCT department FROM employees;
+
+-- 10. LIMIT (restrict result count)
+SELECT * FROM employees LIMIT 10;
+
+-- 11. IN / NOT IN (multiple matching)
+SELECT * FROM projects WHERE status IN ('open', 'active');
+
+-- 12. IS NULL / IS NOT NULL
+SELECT * FROM employees WHERE manager_id IS NULL;
+
+-- 13. BETWEEN (range filter)
+SELECT * FROM sales WHERE date BETWEEN '2024-01-01' AND '2024-12-31';
+
+-- 14. LIKE (pattern match)
+SELECT * FROM customers WHERE name LIKE 'A%';  -- Starts with A
+
+-- 15. CREATE TABLE
+CREATE TABLE employees (
+    emp_id INT PRIMARY KEY,
+    name VARCHAR(100),
+    salary FLOAT,
+    dept_id INT
+);
+
+-- 16. INSERT INTO
+INSERT INTO employees (emp_id, name, salary, dept_id) 
+VALUES (101, 'John Doe', 75000, 1);
+
+-- 17. UPDATE
+UPDATE employees SET salary = salary * 1.1 WHERE dept_id = 2;
+
+-- 18. DELETE
+DELETE FROM employees WHERE emp_id = 101;
+
+==============================================================================
+"""
